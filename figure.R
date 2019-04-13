@@ -11,7 +11,7 @@ options(scipen=5)
 #data table szűrése: [,]-belül első arg a kiválasztott sor(ok), második a kiválasztott oszlop(ok)  
 #ylim azért 0.001 mert 0 nem lehet, log(0) miatt (logaritmikus skála!)
 
-plot(data1[1:3,3:2], ylim=c(min(data1[1:9,2]),max(data1[1:9,2])), col="red", type="l",log = "x",xlab="Random számok mennyisége", ylab="Idő", main="Erasztothenészi prímkeresés párhuzamosítása logaritmikus skálán ábrázolva")
+plot(data1[1:3,3:2], ylim=c(min(data1[1:9,2]),max(data1[1:9,2])), col="red", type="l",log = "x",xlab="Random számok mennyisége", ylab="Idő", main="Eratoszthenészi prímkeresés párhuzamosítása logaritmikus skálán ábrázolva")
 rw <- rep('NULL',3)
 rw[c(3)] <- 'integer'
 rows <- read.table('times.txt', header = FALSE, colClasses=rw)
