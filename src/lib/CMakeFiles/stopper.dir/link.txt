@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../lib/libstopper.a  CMakeFiles/stopper.dir/stopper.c.o
-/usr/bin/ranlib ../../lib/libstopper.a

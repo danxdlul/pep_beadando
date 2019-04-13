@@ -22,12 +22,12 @@ int main(int argc, char *argv[]) {
 	else if(argc>1){
 		threadcount = atoi(argv[1]);
 	}
-	int values[n];
-	int primes[n];
+	printf("Program elinditva az alabbi parameterekkel:\nSzalak szama: %d\nGeneralando szamok: %d\n\n",threadcount,n);
+	//int values[n];
 	time_t t;
     srand((unsigned) time(&t));
 
-
+    int* values= (int*) malloc(n * sizeof(int));
 	for(int i=0;i<n;i++){
 		values[i] = (rand() % 100000) +1;
 	}
@@ -38,7 +38,9 @@ int main(int argc, char *argv[]) {
 			max_val = values[i];
 		}
 	}
-	printf("found max value %d\n",max_val);
+	printf("found max value: %d\n",max_val);
+    //int primes[max_val];
+    int* primes = (int*) malloc(max_val * sizeof(int));
 	char isPrime[max_val+1];
 	#pragma omp parallel for num_threads(threadcount)
   	for (int i = 0; i <= max_val; i++)
@@ -72,7 +74,7 @@ int main(int argc, char *argv[]) {
 	}
   	printf("found all primes\n");
 	char append[14];
-	char tenyezok[50];
+	char tenyezok[100];
 	#pragma omp parallel for num_threads(threadcount) firstprivate(values,primes) private(append,tenyezok) schedule(dynamic)
 	for(int numbers = 0;numbers<n;numbers++){
 		int j = 0;

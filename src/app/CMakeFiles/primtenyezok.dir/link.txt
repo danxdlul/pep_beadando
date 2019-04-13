@@ -1,1 +1,0 @@
-/usr/bin/cc  -fopenmp   CMakeFiles/primtenyezok.dir/main.c.o  -o ../../bin/primtenyezok  -L/home/dan/Letöltések/pepfeladat/lib -Wl,-rpath,/home/dan/Letöltések/pepfeladat/lib -rdynamic ../../lib/libstopper.a -lm 
