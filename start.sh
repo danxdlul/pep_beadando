@@ -33,5 +33,5 @@ numbers3=8388608    #2^23
 
 Rscript figure.R
 
-xdg-open eredmeny.eps
+xdg-open eredmeny.ps
 
