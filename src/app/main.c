@@ -31,14 +31,14 @@ int main(int argc, char *argv[]) {
 	for(int i=0;i<n;i++){
 		values[i] = (rand() % 100000) +1;
 	}
-	printf("created values\n is %d\n",n);
+	//printf("created values\n is %d\n",n);
 	#pragma omp parallel for num_threads(threadcount) reduction(max:max_val)
 	for(int i = 0;i<n;i++){
 		if(max_val < values[i]){
 			max_val = values[i];
 		}
 	}
-	printf("found max value: %d\n",max_val);
+	printf("Max value: %d\n",max_val);
     //int primes[max_val];
     int* primes = (int*) malloc(max_val * sizeof(int));
 	char isPrime[max_val+1];
@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
   	for (int i = 0; i <= max_val; i++)
     isPrime[i] = 1;
 
-	printf("set primes done\n");
+	printf("Set primes done\n");
   	for (int i = 2; i*i <= max_val; i++){
 		  if (isPrime[i]){
 			  #pragma omp parallel for num_threads(threadcount)
@@ -72,7 +72,7 @@ int main(int argc, char *argv[]) {
 			
 		}
 	}
-  	printf("found all primes\n");
+  	printf("Found all primes\n");
 	char append[14];
 	char tenyezok[100];
 	#pragma omp parallel for num_threads(threadcount) firstprivate(values,primes) private(append,tenyezok) schedule(dynamic)
@@ -97,7 +97,7 @@ int main(int argc, char *argv[]) {
 		}
 		//printf(tenyezok);
 	}
-	printf("\ndone checking factors\n");
+	printf("\nDone checking factors\n");
 
 	stopSOMP(&stop);
 
